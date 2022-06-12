@@ -8,7 +8,7 @@ int main(int argc, char **argv)
     Moment m1(18,31,27);
     Moment m2(6,3,10);
     Moment m3(12,12,49);
-    Moment m4(m3);
+    Moment m4(m3); 
     Moment m5 = m1 +68;
     Moment m6 = m2 +m3;
 
@@ -18,7 +18,15 @@ int main(int argc, char **argv)
     cout << m4.getMoment()<< endl;
     cout << m5.getMoment()<< endl;
     cout << m6.getMoment() << endl;
-
+    
+    if (m3 == m4)
+    {
+        cout<< "Same" << endl;
+    }
+    else
+    {
+        cout << "Different" << endl;
+    }
 
     return 0;
 }

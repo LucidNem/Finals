@@ -26,4 +26,4 @@ public:
     string getMoment();
     bool operator== (const Moment &);
     
-};
+}; 

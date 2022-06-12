@@ -61,7 +61,7 @@ Moment Moment::operator+ (int x)
 
     newHour = all / 3600;
     all = all - (newHour *3600);
-    newMinute = all / 60 ;
+    newMinute = all / 60 ; 
     all = all - (newMinute *60);
     newSecond = all;
 
