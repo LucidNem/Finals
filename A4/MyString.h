@@ -11,14 +11,14 @@ private:
 public:
     MyString();
     MyString(char *);
-    MyString(const MyString & );
+    MyString( const MyString & );
     ~MyString();
 
     bool operator==(const MyString &);
     bool operator!=(const MyString &);
     bool operator> (const MyString &);
     bool operator< (const MyString &);
-    MyString operator += (char);
+    void operator += (char);
     const char * getString() const;
     int getLength();
 

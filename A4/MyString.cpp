@@ -7,27 +7,35 @@ using namespace std;
 
 MyString::MyString()
 {
-    str = new char [0];
-    str = "";
+    str = new char[1] ;
+    str[0]=' ';
+    
 }
 
-MyString::MyString(char * str)
+MyString::MyString( char * str)
 {
     this->str = new char [strlen(str)+1];
-    for (int i=0; i<strlen(str)+1; i++)
-    {
-        this->str[i] =str[i];
-    }
+    strcpy(this->str,str);
+    this->str[strlen(str)]='\0';
+    // for (int i=0; i<strlen(str)+1; i++)
+    // {
+    //     this->str[i] =str[i];
+    // }
 }
 
-MyString::MyString(const MyString & x )
+MyString::MyString( const MyString & x )
 {
     this->str = new char [strlen(x.str)+1];
-    for (int i=0; i<strlen(x.str)+1; i++)
-    {
-        this->str[i] =x.str[i];
-    }   
+    strcpy(this->str, x.str);
+    str[strlen(x.str)] = '\0';
+    // for (int i=0; i<strlen(x.str)+1; i++)
+    // {
+    //     this->str[i] =x.str[i];
+    // }   
+    
 }
+
+
 
 MyString::~MyString()
 {
@@ -84,21 +92,26 @@ bool MyString::operator< (const MyString & x)
     return false;
 }
 
-MyString MyString::operator += (char ch)
+void MyString::operator+= (char ch)
 {
-    char * temp;
-    temp = new char [strlen(str)+1];
-    for (int i=0; i<strlen(str)+1; i++)
-    {
-        temp[i] =str[i];
-    }   
-    delete [] str;
+    char * temp = new char [strlen(str)+1];
+    strcpy(temp,str);
+    temp[strlen(str)]='\0';
+    // for (int i=0; i<strlen(str)+1; i++)
+    // {
+    //     temp[i] =str[i];
+    // }   
+    
+    delete [] this->str;
 
-    this->str = new char [strlen(temp)+1];
-    for (int i=0; i<strlen(temp)+1; i++)
-    {
-        this->str[i] = temp[i];
-    }
+    this->str = new char [strlen(temp)+2];
+    strcpy(str,temp);
+    // for ( int i=0; i<strlen(temp)+2; i++)
+    // {
+    //     this->str[i] = temp[i];
+    // }
+    this->str[strlen(temp)+1]= ch;
+    this->str[strlen(temp)+2]= '\0';
     
     delete [] temp;
 
